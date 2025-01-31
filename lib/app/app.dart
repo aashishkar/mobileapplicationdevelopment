@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobileapplicationdevelopment/app/di/di.dart';
 import 'package:mobileapplicationdevelopment/core/theme/app_theme.dart';
 import 'package:mobileapplicationdevelopment/features/splash/presentation/view/splash_view.dart';

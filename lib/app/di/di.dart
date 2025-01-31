@@ -30,6 +30,7 @@ import 'package:mobileapplicationdevelopment/features/course/domain/use_case/get
 import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
 import 'package:mobileapplicationdevelopment/features/home/presentation/view_model/home_cubit.dart';
 import 'package:mobileapplicationdevelopment/features/splash/presentation/view_model/splash_cubit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;
 

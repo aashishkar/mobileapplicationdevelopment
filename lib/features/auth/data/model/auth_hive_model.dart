@@ -4,6 +4,7 @@ import 'package:mobileapplicationdevelopment/app/constants/hive_table_constant.d
 import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
 import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_hive_model.dart';
 import 'package:mobileapplicationdevelopment/features/course/data/model/course_hive_model.dart';
+import 'package:uuid/uuid.dart';
 
 part 'auth_hive_model.g.dart';
 

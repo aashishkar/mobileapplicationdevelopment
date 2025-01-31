@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobileapplicationdevelopment/features/auth/presentation/view/register_view.dart';
 import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/login/login_bloc.dart';
 

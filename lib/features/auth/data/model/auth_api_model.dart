@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
 import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_api_model.dart';
 import 'package:mobileapplicationdevelopment/features/course/data/model/course_api_model.dart';
