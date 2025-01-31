@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/splash/presentation/view_model/splash_cubit.dart';
+import 'package:mobileapplicationdevelopment/features/splash/presentation/view_model/splash_cubit.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

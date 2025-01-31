@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/app/di/di.dart';
-import 'package:softwarica_student_management_bloc/features/batch/presentation/view/batch_view.dart';
-import 'package:softwarica_student_management_bloc/features/batch/presentation/view_model/batch_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/course/presentation/view/course_view.dart';
-import 'package:softwarica_student_management_bloc/features/course/presentation/view_model/course_bloc.dart';
+import 'package:mobileapplicationdevelopment/app/di/di.dart';
+import 'package:mobileapplicationdevelopment/features/batch/presentation/view/batch_view.dart';
+import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/course/presentation/view/course_view.dart';
+import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
 
 class HomeState extends Equatable {
   final int selectedIndex;

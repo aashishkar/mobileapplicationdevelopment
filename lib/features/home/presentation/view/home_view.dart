@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/core/common/snackbar/my_snackbar.dart';
-import 'package:softwarica_student_management_bloc/features/home/presentation/view_model/home_cubit.dart';
-import 'package:softwarica_student_management_bloc/features/home/presentation/view_model/home_state.dart';
+import 'package:mobileapplicationdevelopment/core/common/snackbar/my_snackbar.dart';
+import 'package:mobileapplicationdevelopment/features/home/presentation/view_model/home_cubit.dart';
+import 'package:mobileapplicationdevelopment/features/home/presentation/view_model/home_state.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
