@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:softwarica_student_management_bloc/app/constants/api_endpoints.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/data_source/course_data_source.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/dto/get_all_course_dto.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/model/course_api_model.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
+import 'package:mobileapplicationdevelopment/app/constants/api_endpoints.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/data_source/course_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/dto/get_all_course_dto.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/model/course_api_model.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
 
 class CourseRemoteDataSource implements ICourseDataSource {
   final Dio _dio;

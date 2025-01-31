@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/course/presentation/view_model/course_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
 
 class CourseView extends StatelessWidget {
   CourseView({super.key});

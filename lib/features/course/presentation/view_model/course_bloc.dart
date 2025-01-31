@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/use_case/create_course_usecase.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/use_case/delete_course_usecase.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/use_case/get_all_course_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/use_case/create_course_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/use_case/delete_course_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/use_case/get_all_course_usecase.dart';
 
 part 'course_event.dart';
 part 'course_state.dart';

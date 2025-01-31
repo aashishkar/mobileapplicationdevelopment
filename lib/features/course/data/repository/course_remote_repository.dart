@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:softwarica_student_management_bloc/core/error/failure.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/data_source/remote_datasource/course_remote_datasource.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/repository/course_repository.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/data_source/remote_datasource/course_remote_datasource.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/repository/course_repository.dart';
 
 class CourseRemoteRepository implements ICourseRepository {
   final CourseRemoteDataSource _courseRemoteDataSource;

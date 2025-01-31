@@ -1,8 +1,9 @@
-import 'package:softwarica_student_management_bloc/core/error/failure.dart';
-import 'package:softwarica_student_management_bloc/core/network/hive_service.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/data_source/course_data_source.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/model/course_hive_model.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
+
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/core/network/hive_service.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/data_source/course_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/model/course_hive_model.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
 
 class CourseLocalDataSource implements ICourseDataSource {
   final HiveService _hiveService;

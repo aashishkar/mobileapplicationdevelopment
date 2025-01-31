@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
 
 part 'course_api_model.g.dart';
 
