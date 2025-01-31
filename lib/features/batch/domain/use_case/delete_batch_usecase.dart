@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:softwarica_student_management_bloc/app/shared_prefs/token_shared_prefs.dart';
-import 'package:softwarica_student_management_bloc/app/usecase/usecase.dart';
-import 'package:softwarica_student_management_bloc/core/error/failure.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/repository/batch_repository.dart';
+import 'package:mobileapplicationdevelopment/app/shared_prefs/token_shared_prefs.dart';
+import 'package:mobileapplicationdevelopment/app/usecase/usecase.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/repository/batch_repository.dart';
 
 class DeleteBatchParams extends Equatable {
   final String batchId;

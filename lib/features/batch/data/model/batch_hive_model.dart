@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:softwarica_student_management_bloc/app/constants/hive_table_constant.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/entity/batch_entity.dart';
+import 'package:mobileapplicationdevelopment/app/constants/hive_table_constant.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
+
 import 'package:uuid/uuid.dart';
 
 part 'batch_hive_model.g.dart';

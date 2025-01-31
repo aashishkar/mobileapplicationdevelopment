@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/core/common/snackbar/my_snackbar.dart';
-import 'package:softwarica_student_management_bloc/features/batch/presentation/view_model/batch_bloc.dart';
+import 'package:mobileapplicationdevelopment/core/common/snackbar/my_snackbar.dart';
+import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
 
 class BatchView extends StatelessWidget {
   BatchView({super.key});

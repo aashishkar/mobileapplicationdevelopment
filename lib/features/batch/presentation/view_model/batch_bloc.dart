@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/entity/batch_entity.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/use_case/create_batch_usecase.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/use_case/delete_batch_usecase.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/use_case/get_all_batch_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/use_case/create_batch_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/use_case/delete_batch_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/use_case/get_all_batch_usecase.dart';
 
 part 'batch_event.dart';
 part 'batch_state.dart';

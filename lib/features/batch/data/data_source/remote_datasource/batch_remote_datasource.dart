@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:softwarica_student_management_bloc/app/constants/api_endpoints.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/data_source/batch_data_source.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/dto/get_all_batch_dto.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/model/batch_api_model.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/entity/batch_entity.dart';
+import 'package:mobileapplicationdevelopment/app/constants/api_endpoints.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/data_source/batch_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/dto/get_all_batch_dto.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_api_model.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
 
 class BatchRemoteDataSource implements IBatchDataSource {
   final Dio _dio;

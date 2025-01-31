@@ -1,7 +1,8 @@
-import 'package:softwarica_student_management_bloc/core/network/hive_service.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/data_source/batch_data_source.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/model/batch_hive_model.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/entity/batch_entity.dart';
+
+import 'package:mobileapplicationdevelopment/core/network/hive_service.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/data_source/batch_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_hive_model.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
 
 class BatchLocalDataSource implements IBatchDataSource {
   final HiveService hiveService;

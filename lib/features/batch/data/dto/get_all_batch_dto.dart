@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/model/batch_api_model.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_api_model.dart';
 
 part 'get_all_batch_dto.g.dart';
 
