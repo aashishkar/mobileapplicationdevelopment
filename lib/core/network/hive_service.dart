@@ -1,9 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mobileapplicationdevelopment/app/constants/hive_table_constant.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/model/auth_hive_model.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_hive_model.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/model/course_hive_model.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:softwarica_student_management_bloc/app/constants/hive_table_constant.dart';
-import 'package:softwarica_student_management_bloc/features/auth/data/model/auth_hive_model.dart';
-import 'package:softwarica_student_management_bloc/features/batch/data/model/batch_hive_model.dart';
-import 'package:softwarica_student_management_bloc/features/course/data/model/course_hive_model.dart';
 
 class HiveService {
   static Future<void> init() async {

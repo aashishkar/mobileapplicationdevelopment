@@ -1,14 +1,14 @@
+import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/app/di/di.dart';
-import 'package:softwarica_student_management_bloc/core/common/snackbar/my_snackbar.dart';
-import 'package:softwarica_student_management_bloc/features/auth/domain/use_case/login_usecase.dart';
-import 'package:softwarica_student_management_bloc/features/auth/presentation/view_model/signup/register_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/batch/presentation/view_model/batch_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/course/presentation/view_model/course_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/home/presentation/view/home_view.dart';
-import 'package:softwarica_student_management_bloc/features/home/presentation/view_model/home_cubit.dart';
+import 'package:mobileapplicationdevelopment/app/di/di.dart';
+import 'package:mobileapplicationdevelopment/core/common/snackbar/my_snackbar.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/login_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/signup/register_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/home/presentation/view/home_view.dart';
+import 'package:mobileapplicationdevelopment/features/home/presentation/view_model/home_cubit.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

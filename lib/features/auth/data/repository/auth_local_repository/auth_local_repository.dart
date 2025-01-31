@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:softwarica_student_management_bloc/core/error/failure.dart';
-import 'package:softwarica_student_management_bloc/features/auth/data/data_source/local_data_source/auth_local_datasource.dart';
-import 'package:softwarica_student_management_bloc/features/auth/domain/entity/auth_entity.dart';
-import 'package:softwarica_student_management_bloc/features/auth/domain/repository/auth_repository.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/data_source/local_data_source/auth_local_datasource.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
 
 class AuthLocalRepository implements IAuthRepository {
   final AuthLocalDataSource _authLocalDataSource;

@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:softwarica_student_management_bloc/core/error/failure.dart';
-import 'package:softwarica_student_management_bloc/features/auth/domain/entity/auth_entity.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
 
 abstract interface class IAuthRepository {
   Future<Either<Failure, void>> registerStudent(AuthEntity student);

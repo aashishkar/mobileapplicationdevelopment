@@ -1,17 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
-import 'package:multi_select_flutter/util/multi_select_item.dart';
-import 'package:multi_select_flutter/util/multi_select_list_type.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:softwarica_student_management_bloc/features/auth/presentation/view_model/signup/register_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/entity/batch_entity.dart';
-import 'package:softwarica_student_management_bloc/features/batch/presentation/view_model/batch_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
-import 'package:softwarica_student_management_bloc/features/course/presentation/view_model/course_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/signup/register_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
+import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
+import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});

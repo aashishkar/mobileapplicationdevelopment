@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:softwarica_student_management_bloc/features/batch/domain/entity/batch_entity.dart';
-import 'package:softwarica_student_management_bloc/features/course/domain/entity/course_entity.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
 
 class AuthEntity extends Equatable {
   final String? userId;

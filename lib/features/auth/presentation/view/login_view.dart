@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:softwarica_student_management_bloc/features/auth/presentation/view/register_view.dart';
-import 'package:softwarica_student_management_bloc/features/auth/presentation/view_model/login/login_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/auth/presentation/view/register_view.dart';
+import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/login/login_bloc.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});

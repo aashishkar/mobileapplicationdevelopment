@@ -1,14 +1,35 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mobileapplicationdevelopment/app/shared_prefs/token_shared_prefs.dart';
 import 'package:mobileapplicationdevelopment/core/network/api_service.dart';
 import 'package:mobileapplicationdevelopment/core/network/hive_service.dart';
 import 'package:mobileapplicationdevelopment/features/auth/data/data_source/local_data_source/auth_local_datasource.dart';
 import 'package:mobileapplicationdevelopment/features/auth/data/data_source/remote_data_source/auth_remote_datasource.dart';
 import 'package:mobileapplicationdevelopment/features/auth/data/repository/auth_local_repository/auth_local_repository.dart';
 import 'package:mobileapplicationdevelopment/features/auth/data/repository/auth_remote_repository/auth_remote_repository.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/login_usecase.dart';
 import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/register_user_usecase.dart';
 import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/upload_image_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/login/login_bloc.dart';
 import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/signup/register_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/data_source/local_datasource/batch_local_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/data_source/remote_datasource/batch_remote_datasource.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/repository/batch_local_repository.dart';
+import 'package:mobileapplicationdevelopment/features/batch/data/repository/batch_remote_repository.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/use_case/create_batch_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/use_case/delete_batch_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/batch/domain/use_case/get_all_batch_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/data_source/local_datasource/course_local_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/data_source/remote_datasource/course_remote_datasource.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/repository/course_local_repository.dart';
+import 'package:mobileapplicationdevelopment/features/course/data/repository/course_remote_repository.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/use_case/create_course_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/use_case/delete_course_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/course/domain/use_case/get_all_course_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
+import 'package:mobileapplicationdevelopment/features/home/presentation/view_model/home_cubit.dart';
+import 'package:mobileapplicationdevelopment/features/splash/presentation/view_model/splash_cubit.dart';
 
 final getIt = GetIt.instance;
 

@@ -1,6 +1,6 @@
+
 import 'package:dartz/dartz.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:softwarica_student_management_bloc/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
 
 class TokenSharedPrefs {
   final SharedPreferences _sharedPreferences;

@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:softwarica_student_management_bloc/features/auth/domain/entity/auth_entity.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
+
 
 abstract interface class IAuthDataSource {
   Future<String> loginStudent(String username, String password);
