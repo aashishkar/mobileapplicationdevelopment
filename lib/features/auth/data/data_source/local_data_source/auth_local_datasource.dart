@@ -1,10 +1,11 @@
 import 'dart:io';
 
+import 'package:mobileapplicationdevelopment/core/network/hive_service.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/data_source/auth_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/model/auth_hive_model.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:wise_academy/core/network/hive_service.dart';
-import 'package:wise_academy/features/auth/data/data_source/auth_data_source.dart';
-import 'package:wise_academy/features/auth/data/model/auth_hive_model.dart';
-import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
+
 
 class AuthLocalDataSource implements IAuthDataSource {
   final HiveService _hiveService;
