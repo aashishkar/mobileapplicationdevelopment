@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wise_academy/features/home/presentation/view/bottom_view/dashboard_page_view.dart';
+import 'package:mobileapplicationdevelopment/features/home/presentation/view/bottom_view/dashboard_page_view.dart';
 
 import '../../../../app/di/di.dart';
 import 'home_cubit.dart';

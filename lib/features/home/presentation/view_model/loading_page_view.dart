@@ -26,7 +26,7 @@
 //           mainAxisAlignment: MainAxisAlignment.center,
 //           children: [
 //             Image.asset(
-//               'assets/images/wise_academy_logo.png',
+//               'assets/images/mobileapplicationdevelopment_logo.png',
 //               height: 400,
 //             ),
 //             const SizedBox(height: 20),
