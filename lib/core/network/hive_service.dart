@@ -1,7 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mobileapplicationdevelopment/app/constants/hive_table_constant.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/model/auth_hive_model.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:wise_academy/app/constants/hive_table_constant.dart';
-import 'package:wise_academy/features/auth/data/model/auth_hive_model.dart';
+
 
 class HiveService {
   Future<void> init() async {
