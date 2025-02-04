@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:wise_academy/app/constants/api_endpoints.dart';
-import 'package:wise_academy/features/auth/data/data_source/auth_data_source.dart';
-import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
+import 'package:mobileapplicationdevelopment/app/constants/api_endpoints.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/data_source/auth_data_source.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
+
 
 class AuthRemoteDataSource implements IAuthDataSource {
   final Dio _dio;
