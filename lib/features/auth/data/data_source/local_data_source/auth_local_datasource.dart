@@ -1,11 +1,10 @@
 import 'dart:io';
 
-import 'package:mobileapplicationdevelopment/core/network/hive_service.dart';
-import 'package:mobileapplicationdevelopment/features/auth/data/data_source/auth_data_source.dart';
-import 'package:mobileapplicationdevelopment/features/auth/data/model/auth_hive_model.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
-import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
-
+import 'package:path_provider/path_provider.dart';
+import 'package:wise_academy/core/network/hive_service.dart';
+import 'package:wise_academy/features/auth/data/data_source/auth_data_source.dart';
+import 'package:wise_academy/features/auth/data/model/auth_hive_model.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
 
 class AuthLocalDataSource implements IAuthDataSource {
   final HiveService _hiveService;
@@ -19,19 +18,17 @@ class AuthLocalDataSource implements IAuthDataSource {
       userId: "1",
       fName: "",
       lName: "",
-      image: null,
+      image: "",
       phone: "",
-      batch: BatchEntity(batchName: ""),
-      courses: [],
-      username: "",
+      email: "",
       password: "",
     ));
   }
 
   @override
-  Future<String> loginStudent(String username, String password) async {
+  Future<String> loginCustomer(String email, String password) async {
     try {
-      await _hiveService.login(username, password);
+      await _hiveService.login(email, password);
       return Future.value("Success");
     } catch (e) {
       return Future.error(e);
@@ -39,10 +36,10 @@ class AuthLocalDataSource implements IAuthDataSource {
   }
 
   @override
-  Future<void> registerStudent(AuthEntity student) async {
+  Future<void> registerCustomer(AuthEntity customer) async {
     try {
       // Convert AuthEntity to AuthHiveModel
-      final authHiveModel = AuthHiveModel.fromEntity(student);
+      final authHiveModel = AuthHiveModel.fromEntity(customer);
 
       await _hiveService.register(authHiveModel);
       return Future.value();
@@ -52,7 +49,19 @@ class AuthLocalDataSource implements IAuthDataSource {
   }
 
   @override
-  Future<String> uploadProfilePicture(File file) {
-    throw UnimplementedError();
+  Future<String> uploadProfilePicture(File file) async {
+    try {
+      final appDocDir = await getApplicationDocumentsDirectory();
+      final profilePicsDir = Directory('${appDocDir.path}/profile_pictures');
+      if (!(await profilePicsDir.exists())) {
+        await profilePicsDir.create(recursive: true);
+      }
+      final fileName = 'profile_${DateTime.now().millisecondsSinceEpoch}.jpg';
+      final filePath = '${profilePicsDir.path}/$fileName';
+      final newFile = await file.copy(filePath);
+      return Future.value(newFile.path);
+    } catch (e) {
+      return Future.error("Failed to upload profile picture: ${e.toString()}");
+    }
   }
 }

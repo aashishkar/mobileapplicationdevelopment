@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:mobileapplicationdevelopment/core/error/failure.dart';
-import 'package:mobileapplicationdevelopment/features/auth/data/data_source/local_data_source/auth_local_datasource.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
+import 'package:wise_academy/core/error/failure.dart';
+import 'package:wise_academy/features/auth/data/data_source/local_data_source/auth_local_datasource.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
+import 'package:wise_academy/features/auth/domain/repository/auth_repository.dart';
 
 class AuthLocalRepository implements IAuthRepository {
   final AuthLocalDataSource _authLocalDataSource;
@@ -22,12 +22,12 @@ class AuthLocalRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<Failure, String>> loginStudent(
+  Future<Either<Failure, String>> loginCustomer(
     String email,
     String password,
   ) async {
     try {
-      final token = await _authLocalDataSource.loginStudent(email, password);
+      final token = await _authLocalDataSource.loginCustomer(email, password);
       return Right(token);
     } catch (e) {
       return Left(LocalDatabaseFailure(message: e.toString()));
@@ -35,9 +35,9 @@ class AuthLocalRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<Failure, void>> registerStudent(AuthEntity student) async {
+  Future<Either<Failure, void>> registerCustomer(AuthEntity customer) async {
     try {
-      return Right(_authLocalDataSource.registerStudent(student));
+      return Right(_authLocalDataSource.registerCustomer(customer));
     } catch (e) {
       return Left(LocalDatabaseFailure(message: e.toString()));
     }
@@ -45,7 +45,11 @@ class AuthLocalRepository implements IAuthRepository {
 
   @override
   Future<Either<Failure, String>> uploadProfilePicture(File file) async {
-    // TODO: implement uploadProfilePicture
-    throw UnimplementedError();
+    try {
+      final filePath = await _authLocalDataSource.uploadProfilePicture(file);
+      return Right(filePath);
+    } catch (e) {
+      return Left(LocalDatabaseFailure(message: e.toString()));
+    }
   }
 }

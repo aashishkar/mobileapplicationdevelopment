@@ -1,15 +1,12 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobileapplicationdevelopment/app/di/di.dart';
-import 'package:mobileapplicationdevelopment/core/common/snackbar/my_snackbar.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/login_usecase.dart';
-import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/signup/register_bloc.dart';
-import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
-import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
-import 'package:mobileapplicationdevelopment/features/home/presentation/view/home_view.dart';
-import 'package:mobileapplicationdevelopment/features/home/presentation/view_model/home_cubit.dart';
+
+import '../../../../../core/common/snackbar/my_snackbar.dart';
+import '../../../../home/presentation/view/home_view.dart';
+import '../../../../home/presentation/view_model/home_cubit.dart';
+import '../../../domain/use_case/login_usecase.dart';
+import '../signup/register_bloc.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -34,8 +31,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           MaterialPageRoute(
             builder: (context) => MultiBlocProvider(
               providers: [
-                BlocProvider.value(value: getIt<CourseBloc>()),
-                BlocProvider.value(value: getIt<BatchBloc>()),
                 BlocProvider.value(value: _registerBloc),
               ],
               child: event.destination,
@@ -59,12 +54,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       },
     );
 
-    on<LoginStudentEvent>(
+    on<LoginCustomerEvent>(
       (event, emit) async {
         emit(state.copyWith(isLoading: true));
         final result = await _loginUseCase(
           LoginParams(
-            username: event.username,
+            email: event.email,
             password: event.password,
           ),
         );

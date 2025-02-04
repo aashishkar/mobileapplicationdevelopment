@@ -1,27 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapplicationdevelopment/app/constants/theme_constant.dart';
+
+import '../../app/constants/theme_constant.dart';
 
 class AppTheme {
   AppTheme._();
 
   static getApplicationTheme({required bool isDarkMode}) {
     return ThemeData(
-      // change the theme according to the user preference
-      colorScheme: isDarkMode
-          ? const ColorScheme.dark(
-              primary: ThemeConstant.darkPrimaryColor,
-            )
-          : const ColorScheme.light(
-              primary: Color.fromARGB(255, 17, 119, 20),
-            ),
-      brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      fontFamily: 'Montserrat',
-      useMaterial3: true,
-
       // Change app bar color
       appBarTheme: const AppBarTheme(
         elevation: 0,
-        backgroundColor: ThemeConstant.appBarColor,
+        backgroundColor: Colors.black,
         centerTitle: true,
         titleTextStyle: TextStyle(
           color: Colors.white,
@@ -34,7 +23,7 @@ class AppTheme {
         style: ElevatedButton.styleFrom(
           elevation: 0,
           foregroundColor: Colors.white,
-          backgroundColor: ThemeConstant.primaryColor,
+          backgroundColor: Colors.black,
           textStyle: const TextStyle(
             fontSize: 20,
           ),
@@ -64,16 +53,19 @@ class AppTheme {
       ),
       // Circular progress bar theme
       progressIndicatorTheme: const ProgressIndicatorThemeData(
-        color: ThemeConstant.primaryColor,
+        color: Colors.black,
       ),
       //Bottom navigation bar theme
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.lightGreen,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         elevation: 0,
       ),
     );
   }
 }
+
+
+// m

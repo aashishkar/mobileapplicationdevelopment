@@ -17,24 +17,22 @@ class AuthHiveModelAdapter extends TypeAdapter<AuthHiveModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AuthHiveModel(
-      studentId: fields[0] as String?,
+      customerId: fields[0] as String?,
       fName: fields[1] as String,
       lName: fields[2] as String,
       image: fields[3] as String?,
       phone: fields[4] as String,
-      batch: fields[5] as BatchHiveModel,
-      courses: (fields[6] as List).cast<CourseHiveModel>(),
-      username: fields[7] as String,
-      password: fields[8] as String,
+      email: fields[5] as String,
+      password: fields[6] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, AuthHiveModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(7)
       ..writeByte(0)
-      ..write(obj.studentId)
+      ..write(obj.customerId)
       ..writeByte(1)
       ..write(obj.fName)
       ..writeByte(2)
@@ -44,12 +42,8 @@ class AuthHiveModelAdapter extends TypeAdapter<AuthHiveModel> {
       ..writeByte(4)
       ..write(obj.phone)
       ..writeByte(5)
-      ..write(obj.batch)
+      ..write(obj.email)
       ..writeByte(6)
-      ..write(obj.courses)
-      ..writeByte(7)
-      ..write(obj.username)
-      ..writeByte(8)
       ..write(obj.password);
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobileapplicationdevelopment/features/splash/presentation/view_model/splash_cubit.dart';
+
+import '../view_model/splash_cubit.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[50],
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Center(
@@ -27,31 +28,32 @@ class _SplashViewState extends State<SplashView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 200,
-                  width: 200,
-                  child: Image.asset('assets/images/splash.png'),
+                  height: 250,
+                  width: 250,
+                  child: Image.asset('assets/images/wise_acasemy_logo.png'),
                 ),
-                const Text(
-                  'Student Course Management',
-                  style: TextStyle(
-                    fontSize: 25,
-                  ),
-                ),
+                // const Text(
+                //   'Wise Academy',
+                //   style: TextStyle(
+                //     fontSize: 25,
+                //     color: Colors.blue,
+                //   ),
+                // ),
                 const SizedBox(height: 10),
                 const CircularProgressIndicator(),
                 const SizedBox(height: 10),
-                const Text('version : 1.0.0')
+                // const Text('version : 1.0.0')
               ],
             ),
           ),
-          Positioned(
-            bottom: 10,
-            left: MediaQuery.of(context).size.width / 4,
-            child: const Text(
-              'Developed by: Khatra Sir le',
-              style: TextStyle(fontSize: 15),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 10,
+          //   left: MediaQuery.of(context).size.width / 4,
+          //   child: const Text(
+          //     'Developed by: Abhishek Chaudhary',
+          //     style: TextStyle(fontSize: 15),
+          //   ),
+          // ),
         ],
       ),
     );

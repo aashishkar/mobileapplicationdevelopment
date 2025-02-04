@@ -1,19 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:mobileapplicationdevelopment/app/usecase/usecase.dart';
-import 'package:mobileapplicationdevelopment/core/error/failure.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
-import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
-import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
+import 'package:wise_academy/app/usecase/usecase.dart';
+import 'package:wise_academy/core/error/failure.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
+import 'package:wise_academy/features/auth/domain/repository/auth_repository.dart';
 
 class RegisterUserParams extends Equatable {
   final String fname;
   final String lname;
   final String phone;
-  final BatchEntity batch;
-  final List<CourseEntity> courses;
-  final String username;
+  final String email;
   final String password;
   final String? image;
 
@@ -21,9 +17,7 @@ class RegisterUserParams extends Equatable {
     required this.fname,
     required this.lname,
     required this.phone,
-    required this.batch,
-    required this.courses,
-    required this.username,
+    required this.email,
     required this.password,
     this.image,
   });
@@ -33,19 +27,16 @@ class RegisterUserParams extends Equatable {
     required this.fname,
     required this.lname,
     required this.phone,
-    required this.batch,
-    required this.courses,
-    required this.username,
+    required this.email,
     required this.password,
     this.image,
   });
 
   @override
-  List<Object?> get props =>
-      [fname, lname, phone, batch, courses, username, password];
+  List<Object?> get props => [fname, lname, phone, email, password];
 }
 
-class RegisterUseCase implements UsecaseWithParams<void, RegisterUserParams> {
+class RegisterUseCase implements UseCaseWithParams<void, RegisterUserParams> {
   final IAuthRepository repository;
 
   RegisterUseCase(this.repository);
@@ -55,13 +46,11 @@ class RegisterUseCase implements UsecaseWithParams<void, RegisterUserParams> {
     final authEntity = AuthEntity(
       fName: params.fname,
       lName: params.lname,
-      phone: params.phone,
-      batch: params.batch,
-      courses: params.courses,
-      username: params.username,
+      email: params.email,
       password: params.password,
+      phone: params.phone,
       image: params.image,
     );
-    return repository.registerStudent(authEntity);
+    return repository.registerCustomer(authEntity);
   }
 }

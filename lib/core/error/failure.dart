@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
@@ -27,5 +26,3 @@ class SharedPrefsFailure extends Failure {
     required super.message,
   });
 }
-
-

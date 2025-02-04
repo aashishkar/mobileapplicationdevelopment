@@ -1,6 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
-import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
 
 class AuthEntity extends Equatable {
   final String? userId;
@@ -8,9 +6,7 @@ class AuthEntity extends Equatable {
   final String lName;
   final String? image;
   final String phone;
-  final BatchEntity batch;
-  final List<CourseEntity> courses;
-  final String username;
+  final String email;
   final String password;
 
   const AuthEntity({
@@ -19,13 +15,18 @@ class AuthEntity extends Equatable {
     required this.lName,
     this.image,
     required this.phone,
-    required this.batch,
-    required this.courses,
-    required this.username,
+    required this.email,
     required this.password,
   });
 
   @override
-  List<Object?> get props =>
-      [userId, fName, lName, image, batch, phone, courses, username, password];
+  List<Object?> get props => [
+        userId,
+        fName,
+        lName,
+        image,
+        phone,
+        email,
+        password,
+      ];
 }

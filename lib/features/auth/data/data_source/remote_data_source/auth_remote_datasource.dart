@@ -1,30 +1,27 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:mobileapplicationdevelopment/app/constants/api_endpoints.dart';
-import 'package:mobileapplicationdevelopment/features/auth/data/data_source/auth_data_source.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
+import 'package:wise_academy/app/constants/api_endpoints.dart';
+import 'package:wise_academy/features/auth/data/data_source/auth_data_source.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
 
 class AuthRemoteDataSource implements IAuthDataSource {
   final Dio _dio;
 
   AuthRemoteDataSource(this._dio);
-  
+
   @override
-  Future<void> registerStudent(AuthEntity student) async {
+  Future<void> registerCustomer(AuthEntity customer) async {
     try {
       Response response = await _dio.post(
         ApiEndpoints.register,
         data: {
-          "fname": student.fName,
-          "lname": student.lName,
-          "phone": student.phone,
-          "image": student.image,
-          "username": student.username,
-          "password": student.password,
-          "batch": student.batch.batchId,
-          // "course": ["6489a5908dbc6d39719ec19c", "6489a5968dbc6d39719ec19e"]
-          "course": student.courses.map((e) => e.courseId).toList(),
+          "fname": customer.fName,
+          "lname": customer.lName,
+          "phone": customer.phone,
+          "image": customer.image,
+          "email": customer.email,
+          "password": customer.password,
         },
       );
 
@@ -47,12 +44,12 @@ class AuthRemoteDataSource implements IAuthDataSource {
   }
 
   @override
-  Future<String> loginStudent(String username, String password) async {
+  Future<String> loginCustomer(String email, String password) async {
     try {
       Response response = await _dio.post(
         ApiEndpoints.login,
         data: {
-          "username": username,
+          "email": email,
           "password": password,
         },
       );

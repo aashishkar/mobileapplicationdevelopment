@@ -1,17 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:mobileapplicationdevelopment/app/constants/hive_table_constant.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
-import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_hive_model.dart';
-import 'package:mobileapplicationdevelopment/features/course/data/model/course_hive_model.dart';
 import 'package:uuid/uuid.dart';
+import 'package:wise_academy/app/constants/hive_table_constant.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
 
 part 'auth_hive_model.g.dart';
 
-@HiveType(typeId: HiveTableConstant.studentTableId)
+@HiveType(typeId: HiveTableConstant.customerTableId)
 class AuthHiveModel extends Equatable {
   @HiveField(0)
-  final String? studentId;
+  final String? customerId;
   @HiveField(1)
   final String fName;
   @HiveField(2)
@@ -21,49 +19,39 @@ class AuthHiveModel extends Equatable {
   @HiveField(4)
   final String phone;
   @HiveField(5)
-  final BatchHiveModel batch;
+  final String email;
   @HiveField(6)
-  final List<CourseHiveModel> courses;
-  @HiveField(7)
-  final String username;
-  @HiveField(8)
   final String password;
 
   AuthHiveModel({
-    String? studentId,
+    String? customerId,
     required this.fName,
     required this.lName,
     this.image,
     required this.phone,
-    required this.batch,
-    required this.courses,
-    required this.username,
+    required this.email,
     required this.password,
-  }) : studentId = studentId ?? const Uuid().v4();
+  }) : customerId = customerId ?? const Uuid().v4();
 
   // Initial Constructor
   const AuthHiveModel.initial()
-      : studentId = '',
+      : customerId = '',
         fName = '',
         lName = '',
         image = '',
         phone = '',
-        batch = const BatchHiveModel.initial(),
-        courses = const [],
-        username = '',
+        email = '',
         password = '';
 
   // From Entity
   factory AuthHiveModel.fromEntity(AuthEntity entity) {
     return AuthHiveModel(
-      studentId: entity.userId,
+      customerId: entity.userId,
       fName: entity.fName,
       lName: entity.lName,
       image: entity.image,
       phone: entity.phone,
-      batch: BatchHiveModel.fromEntity(entity.batch),
-      courses: CourseHiveModel.fromEntityList(entity.courses),
-      username: entity.username,
+      email: entity.email,
       password: entity.password,
     );
   }
@@ -71,19 +59,17 @@ class AuthHiveModel extends Equatable {
   // To Entity
   AuthEntity toEntity() {
     return AuthEntity(
-      userId: studentId,
+      userId: customerId,
       fName: fName,
       lName: lName,
       image: image,
       phone: phone,
-      batch: batch.toEntity(),
-      courses: CourseHiveModel.toEntityList(courses),
-      username: username,
+      email: email,
       password: password,
     );
   }
 
   @override
   List<Object?> get props =>
-      [studentId, fName, lName, image, batch, courses, username, password];
+      [customerId, fName, lName, image, phone, email, password];
 }

@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
-import 'package:mobileapplicationdevelopment/features/batch/data/model/batch_api_model.dart';
-import 'package:mobileapplicationdevelopment/features/course/data/model/course_api_model.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
 
 part 'auth_api_model.g.dart';
 
@@ -14,9 +12,7 @@ class AuthApiModel extends Equatable {
   final String lname;
   final String? image;
   final String phone;
-  final BatchApiModel batch;
-  final List<CourseApiModel> courses;
-  final String username;
+  final String email;
   final String? password;
 
   const AuthApiModel({
@@ -25,9 +21,7 @@ class AuthApiModel extends Equatable {
     required this.lname,
     required this.image,
     required this.phone,
-    required this.batch,
-    required this.courses,
-    required this.username,
+    required this.email,
     required this.password,
   });
 
@@ -44,9 +38,7 @@ class AuthApiModel extends Equatable {
       lName: lname,
       image: image,
       phone: phone,
-      batch: batch.toEntity(),
-      courses: courses.map((e) => e.toEntity()).toList(),
-      username: username,
+      email: email,
       password: password ?? '',
     );
   }
@@ -58,14 +50,11 @@ class AuthApiModel extends Equatable {
       lname: entity.lName,
       image: entity.image,
       phone: entity.phone,
-      batch: BatchApiModel.fromEntity(entity.batch),
-      courses: entity.courses.map((e) => CourseApiModel.fromEntity(e)).toList(),
-      username: entity.username,
+      email: entity.email,
       password: entity.password,
     );
   }
 
   @override
-  List<Object?> get props =>
-      [id, fname, lname, image, phone, batch, courses, username, password];
+  List<Object?> get props => [id, fname, lname, image, phone, email, password];
 }

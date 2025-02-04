@@ -3,15 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mobileapplicationdevelopment/features/auth/presentation/view_model/signup/register_bloc.dart';
-import 'package:mobileapplicationdevelopment/features/batch/domain/entity/batch_entity.dart';
-import 'package:mobileapplicationdevelopment/features/batch/presentation/view_model/batch_bloc.dart';
-import 'package:mobileapplicationdevelopment/features/course/domain/entity/course_entity.dart';
-import 'package:mobileapplicationdevelopment/features/course/presentation/view_model/course_bloc.dart';
-import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
-import 'package:multi_select_flutter/util/multi_select_item.dart';
-import 'package:multi_select_flutter/util/multi_select_list_type.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../view_model/signup/register_bloc.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -21,16 +15,16 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  bool _termsAccepted = false;
+
   final _gap = const SizedBox(height: 8);
   final _key = GlobalKey<FormState>();
-  final _fnameController = TextEditingController(text: 'kiran');
-  final _lnameController = TextEditingController(text: 'rana');
-  final _phoneController = TextEditingController(text: '123456789');
-  final _usernameController = TextEditingController(text: 'kiran');
-  final _passwordController = TextEditingController(text: 'kiran123');
-
-  BatchEntity? _dropDownValue;
-  final List<CourseEntity> _lstCourseSelected = [];
+  final _fnameController = TextEditingController();
+  final _lnameController = TextEditingController();
+  final _phoneController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   // Check for camera permission
   Future<void> checkCameraPermission() async {
@@ -63,8 +57,28 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Register Student'),
+        backgroundColor: Colors.blue,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: BlocBuilder<RegisterBloc, RegisterState>(
+          builder: (context, state) {
+            return Text(
+              'Sign Up',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            );
+          },
+        ),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -103,7 +117,8 @@ class _RegisterViewState extends State<RegisterView> {
                               ElevatedButton.icon(
                                 onPressed: () {
                                   _browseImage(ImageSource.gallery);
-                                  Navigator.pop(context);
+                                  Navigator.pop(
+                                      context); // Pick image from gallery
                                 },
                                 icon: const Icon(Icons.image),
                                 label: const Text('Gallery'),
@@ -113,27 +128,37 @@ class _RegisterViewState extends State<RegisterView> {
                         ),
                       );
                     },
-                    child: SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: CircleAvatar(
-                        radius: 50,
-                        backgroundImage: _img != null
-                            ? FileImage(_img!)
-                            : const AssetImage('assets/images/profile.png')
-                                as ImageProvider,
-                        // backgroundImage:
-                        //     const AssetImage('assets/images/profile.png')
-                        //         as ImageProvider,
-                      ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 130,
+                          width: 130,
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundImage: _img != null
+                                ? FileImage(_img!)
+                                : const AssetImage(
+                                    'assets/images/wise_acasemy_logo.png',
+                                  ) as ImageProvider,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          'Upload Picture',
+                          style: TextStyle(fontSize: 16),
+                        )
+                      ],
                     ),
                   ),
                   const SizedBox(height: 25),
                   TextFormField(
                     controller: _fnameController,
-                    decoration: const InputDecoration(
-                      labelText: 'First Name',
-                    ),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        labelText: 'First Name',
+                        prefixIcon: const Icon(Icons.person)),
                     validator: ((value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter first name';
@@ -144,8 +169,12 @@ class _RegisterViewState extends State<RegisterView> {
                   _gap,
                   TextFormField(
                     controller: _lnameController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
                       labelText: 'Last Name',
+                      prefixIcon: const Icon(Icons.person),
                     ),
                     validator: ((value) {
                       if (value == null || value.isEmpty) {
@@ -157,90 +186,31 @@ class _RegisterViewState extends State<RegisterView> {
                   _gap,
                   TextFormField(
                     controller: _phoneController,
-                    decoration: const InputDecoration(
-                      labelText: 'Phone No',
-                    ),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        labelText: 'Phone Number',
+                        prefixIcon: const Icon(Icons.phone)),
                     validator: ((value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter phoneNo';
+                        return 'Please enter phone number';
                       }
                       return null;
                     }),
                   ),
                   _gap,
-                  BlocBuilder<BatchBloc, BatchState>(builder: (context, state) {
-                    return DropdownButtonFormField<BatchEntity>(
-                      items: state.batches
-                          .map((e) => DropdownMenuItem<BatchEntity>(
-                                value: e,
-                                child: Text(e.batchName),
-                              ))
-                          .toList(),
-                      onChanged: (value) {
-                        _dropDownValue = value;
-                      },
-                      value: _dropDownValue,
-                      decoration: const InputDecoration(
-                        labelText: 'Select Batch',
-                      ),
-                      validator: ((value) {
-                        if (value == null) {
-                          return 'Please select batch';
-                        }
-                        return null;
-                      }),
-                    );
-                  }),
-                  _gap,
-                  BlocBuilder<CourseBloc, CourseState>(
-                      builder: (context, courseState) {
-                    if (courseState.isLoading) {
-                      return const CircularProgressIndicator();
-                    } else {
-                      return MultiSelectDialogField(
-                        title: const Text('Select course'),
-                        items: courseState.courses
-                            .map(
-                              (course) => MultiSelectItem(
-                                course,
-                                course.courseName,
-                              ),
-                            )
-                            .toList(),
-                        listType: MultiSelectListType.CHIP,
-                        buttonText: const Text(
-                          'Select course',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        buttonIcon: const Icon(Icons.search),
-                        onConfirm: (values) {
-                          _lstCourseSelected.clear();
-                          _lstCourseSelected.addAll(values);
-                        },
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black87,
-                          ),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        validator: ((value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please select courses';
-                          }
-                          return null;
-                        }),
-                      );
-                    }
-                  }),
-                  _gap,
                   TextFormField(
-                    controller: _usernameController,
-                    decoration: const InputDecoration(
-                      labelText: 'Username',
-                    ),
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        labelText: 'Email',
+                        prefixIcon: const Icon(Icons.email)),
                     validator: ((value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter username';
+                        return 'Please enter email';
                       }
                       return null;
                     }),
@@ -250,8 +220,11 @@ class _RegisterViewState extends State<RegisterView> {
                     controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText: 'Password',
-                    ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        labelText: 'Password',
+                        prefixIcon: Icon(Icons.lock)),
                     validator: ((value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter password';
@@ -260,31 +233,116 @@ class _RegisterViewState extends State<RegisterView> {
                     }),
                   ),
                   _gap,
+                  TextFormField(
+                    controller: _confirmPasswordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      labelText: 'Confirm Password',
+                      prefixIcon: Icon(Icons.lock),
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm password';
+                      }
+                      if (value != _passwordController.text) {
+                        return 'Passwords do not match';
+                      }
+                      return null;
+                    }),
+                  ),
+                  _gap,
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _termsAccepted,
+                        activeColor: Colors.blue,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _termsAccepted = value!;
+                          });
+                        },
+                      ),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'I accept all the ',
+                            style: const TextStyle(
+                                fontSize: 16, color: Colors.black),
+                            children: [
+                              TextSpan(
+                                text: 'Terms and Conditions.',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  _gap,
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
+                        if (!_termsAccepted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                  'Please accept the Terms and Conditions'),
+                            ),
+                          );
+                          return;
+                        }
                         if (_key.currentState!.validate()) {
-                          final registerState =
-                              context.read<RegisterBloc>().state;
-                          final imageName = registerState.imageName;
                           context.read<RegisterBloc>().add(
-                                RegisterStudent(
+                                RegisterCustomer(
                                   context: context,
                                   fName: _fnameController.text,
                                   lName: _lnameController.text,
                                   phone: _phoneController.text,
-                                  batch: _dropDownValue!,
-                                  courses: _lstCourseSelected,
-                                  username: _usernameController.text,
+                                  email: _emailController.text,
                                   password: _passwordController.text,
-                                  image: imageName,
                                 ),
                               );
                         }
                       },
-                      child: const Text('Register'),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              30), // Set the border radius
+                        ),
+                      ),
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
+                  ),
+                  _gap,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Already have an account?'),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context); // Navigate to Sign In
+                        },
+                        child: const Text(
+                          'Sign In',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

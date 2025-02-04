@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:mobileapplicationdevelopment/core/error/failure.dart';
-import 'package:mobileapplicationdevelopment/features/auth/data/data_source/remote_data_source/auth_remote_datasource.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
-import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
+import 'package:wise_academy/core/error/failure.dart';
+import 'package:wise_academy/features/auth/data/data_source/remote_data_source/auth_remote_datasource.dart';
+import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
+import 'package:wise_academy/features/auth/domain/repository/auth_repository.dart';
 
 class AuthRemoteRepository implements IAuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
@@ -12,9 +12,9 @@ class AuthRemoteRepository implements IAuthRepository {
   AuthRemoteRepository(this._authRemoteDataSource);
 
   @override
-  Future<Either<Failure, void>> registerStudent(AuthEntity student) async {
+  Future<Either<Failure, void>> registerCustomer(AuthEntity customer) async {
     try {
-      await _authRemoteDataSource.registerStudent(student);
+      await _authRemoteDataSource.registerCustomer(customer);
       return Right(null);
     } catch (e) {
       return Left(ApiFailure(message: e.toString()));
@@ -28,11 +28,10 @@ class AuthRemoteRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<Failure, String>> loginStudent(
-      String username, String password) async {
+  Future<Either<Failure, String>> loginCustomer(
+      String email, String password) async {
     try {
-      final token =
-          await _authRemoteDataSource.loginStudent(username, password);
+      final token = await _authRemoteDataSource.loginCustomer(email, password);
       return Right(token);
     } catch (e) {
       return Left(ApiFailure(message: e.toString()));
