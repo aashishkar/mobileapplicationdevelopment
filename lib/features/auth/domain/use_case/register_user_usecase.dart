@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:wise_academy/app/usecase/usecase.dart';
-import 'package:wise_academy/core/error/failure.dart';
-import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
-import 'package:wise_academy/features/auth/domain/repository/auth_repository.dart';
+import 'package:mobileapplicationdevelopment/app/usecase/usecase.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
+
 
 class RegisterUserParams extends Equatable {
   final String fname;
