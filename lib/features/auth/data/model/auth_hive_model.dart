@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:mobileapplicationdevelopment/app/constants/hive_table_constant.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
 import 'package:uuid/uuid.dart';
-import 'package:wise_academy/app/constants/hive_table_constant.dart';
-import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
+
 
 part 'auth_hive_model.g.dart';
 
