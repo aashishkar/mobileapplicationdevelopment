@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:wise_academy/core/common/snackbar/my_snackbar.dart';
-import 'package:wise_academy/features/auth/domain/use_case/register_user_usecase.dart';
-import 'package:wise_academy/features/auth/domain/use_case/upload_image_usecase.dart';
+import 'package:mobileapplicationdevelopment/core/common/snackbar/my_snackbar.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/register_user_usecase.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/use_case/upload_image_usecase.dart';
 
 part 'register_event.dart';
 part 'register_state.dart';
