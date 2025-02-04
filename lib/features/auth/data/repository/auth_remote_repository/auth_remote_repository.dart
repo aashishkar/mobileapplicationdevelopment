@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:wise_academy/core/error/failure.dart';
-import 'package:wise_academy/features/auth/data/data_source/remote_data_source/auth_remote_datasource.dart';
-import 'package:wise_academy/features/auth/domain/entity/auth_entity.dart';
-import 'package:wise_academy/features/auth/domain/repository/auth_repository.dart';
+import 'package:mobileapplicationdevelopment/core/error/failure.dart';
+import 'package:mobileapplicationdevelopment/features/auth/data/data_source/remote_data_source/auth_remote_datasource.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/entity/auth_entity.dart';
+import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
+
 
 class AuthRemoteRepository implements IAuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
