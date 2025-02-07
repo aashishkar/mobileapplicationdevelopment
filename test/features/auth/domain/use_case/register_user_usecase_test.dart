@@ -31,11 +31,11 @@ void main() {
       when(() => mockAuthRepository.loginCustomer(any(), any()))
           .thenAnswer((_) async => Right(token));
       when(() => mockTokenSharedPrefs
-              .getToken()) // ✅ Fix: getToken should return Either
+              .getToken()) 
           .thenAnswer((_) async => Right(token));
       when(() => mockTokenSharedPrefs
-              .saveToken(any())) // ✅ Fix: Proper return type
-          .thenAnswer((_) async => Right(unit)); // unit represents void
+              .saveToken(any())) 
+          .thenAnswer((_) async => Right(unit)); 
 
       // Act
       final result = await loginUseCase(
