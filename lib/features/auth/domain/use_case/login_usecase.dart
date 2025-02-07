@@ -5,7 +5,6 @@ import 'package:mobileapplicationdevelopment/app/usecase/usecase.dart';
 import 'package:mobileapplicationdevelopment/core/error/failure.dart';
 import 'package:mobileapplicationdevelopment/features/auth/domain/repository/auth_repository.dart';
 
-
 class LoginParams extends Equatable {
   final String email;
   final String password;
@@ -31,21 +30,15 @@ class LoginUseCase implements UseCaseWithParams<String, LoginParams> {
   LoginUseCase(this.repository, this.tokenSharedPrefs);
 
   @override
-  Future<Either<Failure, String>> call(LoginParams params) {
-    // Save token in Shared Preferences
-    return repository
-        .loginCustomer(params.email, params.password)
-        .then((value) {
-      return value.fold(
-        (failure) => Left(failure),
-        (token) {
-          tokenSharedPrefs.saveToken(token);
-          tokenSharedPrefs.getToken().then((value) {
-            print(value);
-          });
-          return Right(token);
-        },
-      );
-    });
+  Future<Either<Failure, String>> call(LoginParams params) async {
+    final loginResult =
+        await repository.loginCustomer(params.email, params.password);
+
+    if (loginResult.isRight()) {
+      final token = loginResult.getOrElse(() => '');
+      await tokenSharedPrefs.saveToken(token);
+    }
+
+    return loginResult; // ✅ Now returns the correct type
   }
 }

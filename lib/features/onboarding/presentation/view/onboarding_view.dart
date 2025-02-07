@@ -16,19 +16,19 @@ class _OnboardingScreenState extends State<OnboardingView> {
 
   final List<Map<String, String>> _onboardingData = [
     {
-      "image": "assets/images/wise_acasemy_logo.png",
+      "image": "assets/images/logo.png",
       "title": "Welcome",
       "description":
           "Your learning journey starts here. Unlock new skills, learn at your own pace, and grow with us!"
     },
     {
-      "image": "assets/images/wise_acasemy_logo.png",
+      "image": "assets/images/logo.png",
       "title": "Start Learning with Wise Academy",
       "description":
           "Explore a world of knowledge and take control of your learning path today!"
     },
     {
-      "image": "assets/images/wise_acasemy_logo.png",
+      "image": "assets/images/logo.png",
       "title": "Learn Anytime, Anywhere",
       "description":
           "Join Wise Academy and access personalized courses to help you succeed, on your terms."

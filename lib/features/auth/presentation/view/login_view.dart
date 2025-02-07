@@ -28,7 +28,7 @@ class LoginView extends StatelessWidget {
                     Column(
                       children: [
                         Image.asset(
-                          'assets/images/wise_acasemy_logo.png',
+                          'assets/images/logo.png',
                           height: 250,
                           width: 250,
                         ),

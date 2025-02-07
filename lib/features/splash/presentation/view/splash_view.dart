@@ -30,7 +30,7 @@ class _SplashViewState extends State<SplashView> {
                 SizedBox(
                   height: 250,
                   width: 250,
-                  child: Image.asset('assets/images/wise_acasemy_logo.png'),
+                  child: Image.asset('assets/images/logo.png'),
                 ),
                 // const Text(
                 //   'Wise Academy',
