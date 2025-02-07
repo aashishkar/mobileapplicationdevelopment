@@ -29,9 +29,9 @@ void main() {
     test('should return token and save it when login is successful', () async {
       // Arrange (Mock the repository to return a valid token)
       when(() => mockAuthRepository.loginCustomer(email, password))
-          .thenAnswer((_) async => Right(token)); // ✅ FIXED
+          .thenAnswer((_) async => Right(token)); 
       when(() => mockTokenSharedPrefs.saveToken(token)).thenAnswer(
-          (_) async => Future.value(Right(null))); // ✅ Ensure non-null Future
+          (_) async => Future.value(Right(null))); 
 
       // Act
       final result = await loginUseCase(
